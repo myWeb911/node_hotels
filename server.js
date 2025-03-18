@@ -2,11 +2,12 @@ const express = require('express')
 var bodyParser = require('body-parser')
 const app = express();
 const db = require('./db'); 
-
+require('dotenv').config();
 
 // middleware function
 app.use(bodyParser.json())
-app.listen(3000)
+
+const PORT = process.env.PORT || 3000;
 
  
 // import the router files
@@ -19,7 +20,9 @@ app.use('/person', personRoutes);
 app.use('/menu', menuRoutes);
 
  
-
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 
 

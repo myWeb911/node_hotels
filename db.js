@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 
 // mongo db connection
-const db_link = 'mongodb+srv://admin:i%23_d2h7p.VGVnx5@cluster0.hmgo1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const db_link = process.env.DB_URL;
 
  
 mongoose.connect(db_link)
